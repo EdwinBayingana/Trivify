@@ -54,8 +54,8 @@ const page = () => {
   };
 
   return (
-    <div className="mx-8">
-      <h1 className="mt-[20px] text-[25px]">Quiz Page</h1>
+    <div className="mx-8 text-[25px] ml-[300px] flex-col items-center justify-between p-24">
+      <h1 className="mt-[15px] text-[25px]">Quiz Page</h1>
       <div>
         <h3>
           Question: {activeQuestion + 1}
@@ -105,7 +105,23 @@ const page = () => {
             </div>
           </div>
         ) : (
-          <div className="w-[300px] h-[30px] bg-white"></div>
+          <div className="w-[300px] bg-white h-[230px] px-2 py-2 rounded-sm text-black">
+            <h3>Results</h3>
+            <h3>Overall {(result.score / 25) * 100}%</h3>
+            <p>
+              Total Questions: <span>{questions.length}</span>
+            </p>
+            <p>
+              Total Score: <span>{result.score}</span>
+            </p>
+            <p>
+              Correct Answers: <span>{result.correctAnswers}</span>
+            </p>
+            <p>
+              Wrong Answers: <span>{result.wrongAnswers}</span>
+            </p>
+            <button onClick={() => window.location.reload()}>Restart</button>
+          </div>
         )}
       </div>
     </div>
