@@ -30,6 +30,29 @@ const page = () => {
     }
   };
 
+  const nextQuestion = () => {
+    setSelectedAnswerIndex(null);
+    setResult((prev) =>
+      selectedAnswer
+        ? {
+            ...prev,
+            score: prev.score + 5,
+            correctAnswers: prev.correctAnswers + 1,
+          }
+        : {
+            ...prev,
+            wrongAnswers: prev.wrongAnswers + 1,
+          },
+    );
+    if (activeQuestion !== questions.length - 1) {
+      setActiveQuestion((prev) => prev + 1);
+    } else {
+      setActiveQuestion(0);
+      setShowResult(true);
+    }
+    setChecked(false);
+  };
+
   return (
     <div className="mx-8">
       <h1 className="mt-[20px] text-[25px]">Quiz Page</h1>
@@ -63,7 +86,7 @@ const page = () => {
             <div className="flex justify-center">
               {checked ? (
                 <button
-                  // onClick={nextQuestion}
+                  onClick={nextQuestion}
                   className="bg-gray-700 w-[50%] h-[45px] rounded-md"
                 >
                   {activeQuestion === question.length - 1
@@ -72,7 +95,7 @@ const page = () => {
                 </button>
               ) : (
                 <button
-                  // onClick={nextQuestion}
+                  onClick={nextQuestion}
                   disabled
                   className="bg-gray-400 w-[50%] cursor-not-allowed h-[45px]"
                 >
