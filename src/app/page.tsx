@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="flex text-[25px] flex-col items-center justify-between p-24">
       <h1>Quiz App</h1>
-      <Link href="/quiz">
+      <Link href="/auth">
         <Button onClick={handleButtonClick}>Start</Button>
       </Link>
     </main>
