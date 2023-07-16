@@ -5,6 +5,10 @@ import TextInput from './TextInput';
 import Container from './Container';
 import Section from './Section';
 import Text from './Text';
+import { Navbar } from './Navbars';
+import { HomeLeftSection, HomeRightSection } from './Sections/Home';
+import { HomeSvg } from './Svg';
+
 import { LoginForm, SignupForm } from './Forms';
 
 export {
@@ -18,4 +22,8 @@ export {
   SignupLeftSection,
   LoginForm,
   SignupForm,
+  Navbar,
+  HomeLeftSection,
+  HomeRightSection,
+  HomeSvg,
 };

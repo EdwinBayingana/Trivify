@@ -1,5 +1,12 @@
 import Link from 'next/link';
-import { Button } from '@/components';
+import {
+  Button,
+  Container,
+  Navbar,
+  HomeLeftSection,
+  HomeRightSection,
+  Section,
+} from '@/components';
 
 export default function Home() {
   const handleButtonClick = () => {
@@ -7,11 +14,14 @@ export default function Home() {
   };
 
   return (
-    <main className="flex text-[25px] flex-col items-center justify-between p-24">
-      <h1>Quiz App</h1>
-      <Link href="/auth">
-        <Button onClick={handleButtonClick}>Start</Button>
-      </Link>
+    <main>
+      <Container className="bg-creamWhite">
+        <Navbar />
+        <Section className="flex">
+          <HomeLeftSection />
+          <HomeRightSection />
+        </Section>
+      </Container>
     </main>
   );
 }

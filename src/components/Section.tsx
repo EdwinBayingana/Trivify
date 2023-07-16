@@ -2,8 +2,6 @@ import React, { ReactNode } from 'react';
 
 interface SectionProps {
   children: ReactNode;
-  src: string;
-  alt: string;
   className: string;
 }
 
