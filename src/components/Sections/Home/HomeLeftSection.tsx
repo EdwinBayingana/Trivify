@@ -17,10 +17,10 @@ const HomeLeftSection = () => {
       </Text>
 
       <Section className="flex ml-[135px] gap-[10px] mt-[30px]">
-        <Button className="w-43 px-10 py-3 bg-primaryPurple text-[13px] rounded-lg">
+        <Button className="w-[160px] py-3 bg-primaryPurple text-[13px] rounded-lg">
           Browse Quizzes
         </Button>
-        <Button className="w-43 px-13 py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg">
+        <Button className="w-[160px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg">
           View Profile
         </Button>
       </Section>
