@@ -2,7 +2,6 @@ import {
   FaRegEnvelope,
   FaKeycdn,
   FaGithub,
-  FaInstagram,
   FaApple,
   FaBrain,
 } from 'react-icons/fa';
