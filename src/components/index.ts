@@ -5,6 +5,7 @@ import TextInput from './TextInput';
 import Container from './Container';
 import Section from './Section';
 import Text from './Text';
+import { Navbar } from './Navbars';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -19,4 +20,5 @@ export {
   SignupLeftSection,
   LoginForm,
   SignupForm,
+  Navbar,
 };
