@@ -3,8 +3,8 @@ import { Text, Image } from '@/components';
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between bg-brown p-4 gap-[100px] mx-[120px]">
-      <div className="flex items-center gap-2">
+    <nav className="flex items-center justify-between bg-brown p-4 gap-[100px] mx-[170px]">
+      <div className="flex items-center gap-2 ml-[-54px]">
         <GiBrain className="h-11 w-11 text-black" />
         <span className="text-black text-2xl hidden md:block lg:block xl:block">
           Trivify
