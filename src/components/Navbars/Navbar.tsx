@@ -17,8 +17,7 @@ const Navbar = () => {
           <Image
             src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80"
             alt="user profile image"
-            className="w-[50px] h-[50px] rounded-full border border-[#0000007b]"
-            style={{ objectFit: 'cover' }}
+            className="w-[50px] h-[50px] rounded-full border border-[#0000007b] object-cover"
           />
           <ul className="border border-[#7c7c7c] items-center w-[1px] h-[45px] mt-[4px] rounded mx-3" />
           <Text className="font-bold pt-[10px] text-2xl">Jane</Text>
