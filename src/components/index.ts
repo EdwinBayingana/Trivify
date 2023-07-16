@@ -6,6 +6,7 @@ import Container from './Container';
 import Section from './Section';
 import Text from './Text';
 import { Navbar } from './Navbars';
+import { HomeLeftSection, HomeRightSection } from './Sections/Home';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -21,4 +22,6 @@ export {
   LoginForm,
   SignupForm,
   Navbar,
+  HomeLeftSection,
+  HomeRightSection,
 };
