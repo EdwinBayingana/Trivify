@@ -4,6 +4,7 @@ import {
   FaGithub,
   FaInstagram,
   FaApple,
+  FaBrain,
 } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Text, Section, TextInput, Button } from '@/components';
@@ -18,14 +19,22 @@ const LoginLeftSection = () => {
     'flex h-10 w-10 border border-[#D9D9D9] rounded-full justify-center';
 
   return (
-    <div>
-      <Section className="items-center flex flex-col min-h-screen">
-        <Text className="text-4xl font-[600] pt-40">Welcome Back</Text>
-        <Text className="text-[#6C6C6C] pt-1 text-[14px]">
-          Please enter your credentials
-        </Text>
+    <Section className="flex flex-col items-center justify-center min-h-screen">
+      <div className="flex mt-5 gap-1">
+        <FaBrain className="h-8 w-8" />
+        <Text className="text-[23px]">Trivify</Text>
+      </div>
 
-        <div className="flex flex-col gap-[17px] mt-[20px]">
+      {/* Middle part of the form */}
+      <Section className="flex flex-col items-center justify-center mt-[100px]">
+        <div className="text-center">
+          <Text className="text-4xl font-[600]">Welcome Back</Text>
+          <Text className="text-[#6C6C6C] py-2 text-[14px]">
+            Please enter your credentials
+          </Text>
+        </div>
+
+        <Section className="flex flex-col gap-[17px]">
           <div className="flex flex-row border gap-[2px] bg-[#E6E6E6] rounded-[10px] w-[330px] h-[50px] mx-[29px]">
             <div className="w-[50%] border rounded-[10px] text-center">
               <Text className="cursor-pointer px-[10px] h-[46px] py-[12px] bg-[#fff] rounded-[10px] text-[14px]">
@@ -84,9 +93,15 @@ const LoginLeftSection = () => {
               <FaApple className="h-5 w-5 mt-[8px]" />
             </div>
           </div>
-        </div>
+        </Section>
       </Section>
-    </div>
+
+      <div className="mt-auto">
+        <Text className="text-greyText font-[200]">
+          Join us now, and let the quest for knowledge begin!
+        </Text>
+      </div>
+    </Section>
   );
 };
 
