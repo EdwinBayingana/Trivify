@@ -1,9 +1,11 @@
+'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FaRegEnvelope, FaKeycdn, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { RiKey2Line } from 'react-icons/ri';
+import { Triangle } from 'react-loader-spinner';
 
 import { Text, Section, TextInput, Button } from '@/components';
 
@@ -12,7 +14,7 @@ type LoginFormSectionProps = {
 };
 
 const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
-  const router = useRouter();
+  // const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const loginFormDisplay = () => {
@@ -36,10 +38,17 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
   const handleLogin = () => {
     setIsLoading(true);
 
-    // Simulating a delay before redirecting to the home page
     setTimeout(() => {
-      router.push('/');
-    }, 2000);
+      console.log('redirected successful');
+
+      setIsLoading(false);
+
+      // Redirect to the home page
+      // router.push('/');
+    }, 8000);
+  };
+  const handleLoginbtn = () => {
+    console.log('Login successful');
   };
 
   return (
@@ -91,13 +100,26 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
           <TextInput type="text" placeholder="Password" className={textInput} />
         </div>
 
-        <Button
-          className="text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]"
-          onClick={handleLogin}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Loading...' : 'Login'}
-        </Button>
+        <Link href="/" onClick={handleLogin}>
+          <Button
+            className="justify-center text-center flex pt-[12px] text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]"
+            onClick={handleLoginbtn}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <Triangle
+                height="20px"
+                width="20px"
+                color="#ffffff"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{}}
+                visible={true}
+              />
+            ) : (
+              'Login'
+            )}
+          </Button>
+        </Link>
 
         <div className="flex align-center justify-center">
           <ul className="mt-[13px] border border-[#E6E6E6] w-[100px] h-[0.5px] rounded mx-3" />

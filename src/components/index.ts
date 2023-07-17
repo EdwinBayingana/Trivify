@@ -8,6 +8,7 @@ import Text from './Text';
 import { Navbar } from './Navbars';
 import { HomeLeftSection, HomeRightSection } from './Sections/Home';
 import { HomeSvg } from './Svg';
+import Categories from './Categories';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -26,4 +27,5 @@ export {
   HomeLeftSection,
   HomeRightSection,
   HomeSvg,
+  Categories,
 };
