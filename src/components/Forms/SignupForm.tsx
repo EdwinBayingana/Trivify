@@ -98,7 +98,7 @@ const SignupForm: React.FC<SignupFormSectionProps> = ({ toggle }) => {
           />
         </div>
 
-        <Button className="text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]">
+        <Button className="text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]">
           Continue
         </Button>
 

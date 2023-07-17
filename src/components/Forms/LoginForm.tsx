@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { FaRegEnvelope, FaKeycdn, FaGithub, FaApple } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { RiKey2Line } from 'react-icons/ri';
@@ -9,6 +12,9 @@ type LoginFormSectionProps = {
 };
 
 const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const loginFormDisplay = () => {
     localStorage.setItem('authPageToggle', 'login');
     toggle();
@@ -27,6 +33,15 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
   const socialMediaIcons =
     'flex h-10 w-10 border border-[#D9D9D9] rounded-full justify-center';
 
+  const handleLogin = () => {
+    setIsLoading(true);
+
+    // Simulating a delay before redirecting to the home page
+    setTimeout(() => {
+      router.push('/');
+    }, 2000);
+  };
+
   return (
     <Section className="flex flex-col items-center justify-center mt-[100px]">
       <div className="text-center">
@@ -42,10 +57,7 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
             className="w-[50%] border rounded-[10px] text-center"
             onClick={loginFormDisplay}
           >
-            <Text
-              className="cursor-pointer px-[10px] h-[46px] py-[12px] bg-[#fff] rounded-[10px] text-[14px]"
-              // onClick={loginFormDisplay}
-            >
+            <Text className="cursor-pointer px-[10px] h-[46px] py-[12px] bg-[#fff] rounded-[10px] text-[14px]">
               Sign in
             </Text>
           </div>
@@ -53,10 +65,7 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
             className="border w-[50%] rounded-[10px] mr-[2px] text-center"
             onClick={signupFormDisplay}
           >
-            <Text
-              className="cursor-pointer px-[10px] py-[12px] text-[14px]"
-              // onClick={signupFormDisplay}
-            >
+            <Text className="cursor-pointer px-[10px] py-[12px] text-[14px]">
               Signup
             </Text>
           </div>
@@ -82,8 +91,12 @@ const LoginForm: React.FC<LoginFormSectionProps> = ({ toggle }) => {
           <TextInput type="text" placeholder="Password" className={textInput} />
         </div>
 
-        <Button className="text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]">
-          Login
+        <Button
+          className="text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]"
+          onClick={handleLogin}
+          disabled={isLoading}
+        >
+          {isLoading ? 'Loading...' : 'Login'}
         </Button>
 
         <div className="flex align-center justify-center">
