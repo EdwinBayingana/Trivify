@@ -74,7 +74,7 @@ const QuizQuestions = ({
 
 const SingleQuizPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
+  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(1);
 
   const handleAnswerSelection = (answerIndex: number) => {
     setSelectedAnswer(answerIndex);
@@ -90,7 +90,7 @@ const SingleQuizPage = () => {
       <div className="text-center">
         <h1 className="text-[30px] font-[600]">{quiz_1.quiz_title} - QUIZ</h1>
       </div>
-      <Section className="flex flex-row gap-[50px] border border-black justify-center">
+      <Section className="flex flex-row gap-[50px] justify-center">
         <QuizImage
           imageUrl={quiz_1.questions[selectedQuestion]?.imageUrl || ''}
         />
@@ -100,7 +100,7 @@ const SingleQuizPage = () => {
           handleAnswerSelection={handleAnswerSelection}
         />
 
-        <div className="w-35">
+        <div className="w-35 mt-[50px]">
           <QuizQuestions
             questions={quiz_1.questions}
             selectedQuestion={selectedQuestion}
