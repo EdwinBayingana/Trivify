@@ -20,7 +20,7 @@ const BrowseQuizzes = () => {
       </Section>
 
       {selectedCategory !== null && (
-        <Section className="flex justify-center mt-5 mx-[300px]">
+        <Section className="flex justify-center mt-5 mx-[310px]">
           <div className="grid grid-cols-4 gap-2">
             {quizData
               .filter(

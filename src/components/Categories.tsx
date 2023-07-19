@@ -26,10 +26,10 @@ const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
         {CategoriesList.map((category, index) => (
           <li
             key={index}
-            className={`flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
+            className={`flex text-[16px] mb-2 py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
               selectedCategory === index
                 ? 'text-[#222222] bg-white rounded-lg'
-                : ''
+                : 'text-[white]'
             }`}
             onClick={() => handleSelectedCategory(index)}
           >
