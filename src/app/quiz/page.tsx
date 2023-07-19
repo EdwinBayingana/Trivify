@@ -18,7 +18,7 @@ const QuizImage = ({ imageUrl }: { imageUrl: string }) => {
       <img
         src={imageUrl}
         alt="Quiz Image"
-        className="w-[300px] h-[300px] rounded-lg object-cover"
+        className="w-[250px] h-[250px] rounded-[30px] object-cover"
       />
     </div>
   );
@@ -35,11 +35,18 @@ const QuizAnswerOptions = ({
       {answers.map((answer: string, index: number) => (
         <div
           key={index}
-          className={`w-64 h-12 rounded-md mb-2 cursor-pointer ${
-            selectedAnswer === index ? 'bg-blue-500 text-white' : 'bg-gray-200'
+          className={`flex gap-3 w-64 h-11 border border-[#CDCDCD] rounded-md py-[10px] px-1 mb-2 cursor-pointer text-[14px] ${
+            selectedAnswer === index
+              ? 'bg-[#EAE8FF] text-black border-[#655DBB]'
+              : 'bg-white'
           }`}
           onClick={() => handleAnswerSelection(index)}
         >
+          <div
+            className={` ${
+              selectedAnswer === index ? 'bg-[#655DBB] ' : 'bg-[#F5F5F5]'
+            }  ml-1 mt-[2px] border border-[#CDCDCD] h-4 w-4 rounded-full`}
+          ></div>
           {answer}
         </div>
       ))}
@@ -85,7 +92,7 @@ const SingleQuizPage = () => {
   };
 
   return (
-    <Container className="text-black">
+    <Container className="text-black bg-creamWhite">
       <Navbar />
       <div className="text-center">
         <h1 className="text-[30px] font-[600]">{quiz_1.quiz_title} - QUIZ</h1>
@@ -113,27 +120,3 @@ const SingleQuizPage = () => {
 };
 
 export default SingleQuizPage;
-
-// 'use client';
-// import React, { useState, useEffect } from 'react';
-// import {
-//   QuizLeftSide,
-//   QuizRightSide,
-//   Container,
-//   Navbar,
-//   Section,
-// } from '@/components';
-
-// const SingleQuizPage = () => {
-//   return (
-//     <Container className="text-black">
-//       <Navbar />
-//       <Section className="flex">
-//         <QuizLeftSide />
-//         <QuizRightSide />
-//       </Section>
-//     </Container>
-//   );
-// };
-
-// export default SingleQuizPage;

@@ -16,7 +16,8 @@ const HomeLeftSection = () => {
 
       // Redirect to the browse page
       // router.push('/');
-    }, 4000);
+    }, 10000);
+    // }, 4000);
   };
 
   return (
