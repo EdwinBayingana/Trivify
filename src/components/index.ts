@@ -9,6 +9,7 @@ import { Navbar } from './Navbars';
 import { HomeLeftSection, HomeRightSection } from './Sections/Home';
 import { HomeSvg } from './Svg';
 import Categories from './Categories';
+import QuizCard from './Cards/QuizCard';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -28,4 +29,5 @@ export {
   HomeRightSection,
   HomeSvg,
   Categories,
+  QuizCard,
 };

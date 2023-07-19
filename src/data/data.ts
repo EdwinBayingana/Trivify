@@ -34,11 +34,15 @@ export const quiz = {
   ],
 };
 
-export const QuizCardDetails = [
+export const quizData = [
   {
-    id: 1,
-    question: 'What is the capital of France?',
-    answers: ['Madrid', 'Paris', 'Rome', 'Berlin'],
-    correctAnswer: 'Paris',
+    title: 'Quiz 1',
+    description: 'This is Quiz 1 description',
+    difficulty: 'Easy',
+  },
+  {
+    title: 'Quiz 2',
+    description: 'This is Quiz 2 description',
+    difficulty: 'Medium',
   },
 ];
