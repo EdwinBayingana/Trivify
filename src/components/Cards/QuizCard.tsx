@@ -1,8 +1,9 @@
 import React from 'react';
+import { Image } from '@/components';
 
 interface Quiz {
   title: string;
-  description: string;
+  imageUrl: string;
   difficulty: string;
 }
 
@@ -12,10 +13,20 @@ interface QuizCardProps {
 
 const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
   return (
-    <div className="quiz-card bg-black shadow-lg rounded-lg p-6">
-      <h2 className="text-xl font-bold mb-2">{quiz.title}</h2>
-      <p className="text-gray-600">{quiz.description}</p>
-      <p className="text-gray-700 mt-2">Difficulty: {quiz.difficulty}</p>
+    <div className="bg-white text-black shadow-lg rounded-lg">
+      <div className="">
+        <Image
+          className="text-gray-600 w-full h-[200px] rounded-t-md object-cover"
+          src={quiz.imageUrl}
+          alt={`Quiz - ${quiz.title}`}
+        />
+      </div>
+      <div className="p-3">
+        <h2 className="text-md font-bold mb-2">{quiz.title}</h2>
+        <p className="text-black mt-2 text-[12px]">
+          Difficulty: <span className="text-greyText">{quiz.difficulty}</span>
+        </p>
+      </div>
     </div>
   );
 };

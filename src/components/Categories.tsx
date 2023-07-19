@@ -7,7 +7,7 @@ interface CategoriesProps {
 }
 
 const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(0); // This 0 is the index of the first category
 
   const categoryItemWidth = 110;
   const parentDivWidth = CategoriesList.length * categoryItemWidth;
@@ -26,10 +26,10 @@ const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
         {CategoriesList.map((category, index) => (
           <li
             key={index}
-            className={`flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
+            className={`flex text-[16px] mb-2 py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
               selectedCategory === index
-                ? 'text-[#000] bg-white rounded-lg'
-                : ''
+                ? 'text-[#222222] bg-white rounded-lg'
+                : 'text-[white]'
             }`}
             onClick={() => handleSelectedCategory(index)}
           >
