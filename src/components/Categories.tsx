@@ -9,7 +9,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
-  const categoryItemWidth = 120;
+  const categoryItemWidth = 110;
   const parentDivWidth = CategoriesList.length * categoryItemWidth;
 
   const handleSelectedCategory = (index: number) => {
@@ -28,7 +28,7 @@ const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
             key={index}
             className={`flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
               selectedCategory === index
-                ? 'text-[black] bg-white rounded-lg'
+                ? 'text-[#000] bg-white rounded-lg'
                 : ''
             }`}
             onClick={() => handleSelectedCategory(index)}

@@ -1,5 +1,5 @@
 const CategoriesList = [
-  'All Categories',
+  'History',
   'Sports',
   'Music',
   'Tv Series',

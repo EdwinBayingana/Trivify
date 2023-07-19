@@ -30,14 +30,6 @@ const BrowseQuizzes = () => {
             ))}
         </Section>
       )}
-
-      {/* {selectedCategory !== null && (
-        <Section className="flex justify-center mt-5">
-          {quizData.map((quiz, index) => (
-            <QuizCard key={index} quiz={quiz} />
-          ))}
-        </Section>
-      )} */}
     </Container>
   );
 };
