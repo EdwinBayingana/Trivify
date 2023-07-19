@@ -105,6 +105,13 @@ export const quizData = [
     difficulty: 'Hard',
     category: 'History',
   },
+  {
+    title: 'French Revolution',
+    description:
+      'Test your knowledge of the American Revolution in this history quiz!',
+    difficulty: 'Hard',
+    category: 'History',
+  },
 ];
 
 export default quizData;
