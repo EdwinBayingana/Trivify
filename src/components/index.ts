@@ -10,6 +10,7 @@ import { HomeLeftSection, HomeRightSection } from './Sections/Home';
 import { HomeSvg } from './Svg';
 import Categories from './Categories';
 import QuizCard from './Cards/QuizCard';
+import QuizCardSkeleton from './Skeletons/QuizCardSkeleton';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -24,10 +25,11 @@ export {
   SignupLeftSection,
   LoginForm,
   SignupForm,
+  Categories,
+  QuizCard,
   Navbar,
   HomeLeftSection,
   HomeRightSection,
   HomeSvg,
-  Categories,
-  QuizCard,
+  QuizCardSkeleton,
 };
