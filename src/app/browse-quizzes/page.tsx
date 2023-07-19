@@ -7,7 +7,7 @@ import { quizData } from '@/data/data';
 import { QuizCardSkeleton } from '@/components';
 
 const BrowseQuizzes = () => {
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(0);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(0); // This 0 is the index of the first category
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -34,7 +34,11 @@ const BrowseQuizzes = () => {
       {loading ? (
         <Section className="flex justify-center mt-5">
           <div className="grid grid-cols-4 gap-2">
-            {/* Skeleton loader component */}
+            {/* Skeleton loader component 👇🏽 */}
+            <QuizCardSkeleton />
+            <QuizCardSkeleton />
+            <QuizCardSkeleton />
+            <QuizCardSkeleton />
             <QuizCardSkeleton />
             <QuizCardSkeleton />
             <QuizCardSkeleton />

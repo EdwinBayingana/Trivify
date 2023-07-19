@@ -132,6 +132,8 @@ export const quizData = [
     difficulty: 'Medium',
     category: 'Sports',
   },
+
+  // Music
   {
     id: 13,
     title: 'Music Theory',
@@ -140,6 +142,46 @@ export const quizData = [
     difficulty: 'Hard',
     category: 'Music',
   },
+  {
+    id: 14,
+    title: 'Hip-hop',
+    imageUrl:
+      'https://images.unsplash.com/photo-1508973379184-7517410fb0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    difficulty: 'Medium',
+    category: 'Music',
+  },
+  {
+    id: 15,
+    title: 'Rock',
+    imageUrl:
+      'https://c1.wallpaperflare.com/preview/204/360/969/artist-rock-n-roll-guitar-rock.jpg',
+    difficulty: 'Hard',
+    category: 'Music',
+  },
+  {
+    id: 16,
+    title: 'UK Music',
+    imageUrl:
+      'https://assets-cdn.audionetwork.com/templates/images/Image_8318_107.png',
+    difficulty: 'Medium',
+    category: 'Music',
+  },
+  {
+    id: 17,
+    title: 'Maverick City music',
+    imageUrl:
+      'https://www.thechristianbeat.org/wp-content/uploads/2021/06/maverickcitymusic2021-scaled-e1622729183901-1024x649.jpg',
+    difficulty: 'Hard',
+    category: 'Music',
+  },
+  // {
+  //   id: 15,
+  //   title: 'Rock',
+  //   imageUrl:
+  //     'https://c1.wallpaperflare.com/preview/204/360/969/artist-rock-n-roll-guitar-rock.jpg',
+  //   difficulty: 'Hard',
+  //   category: 'Music',
+  // },
 ];
 
 export default quizData;
