@@ -14,7 +14,6 @@ interface Question {
 const QuizImage = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <div className="flex justify-center items-center h-[400px]">
-      {/* Centered Image */}
       <img
         src={imageUrl}
         alt="Quiz Image"
@@ -28,6 +27,8 @@ const QuizAnswerOptions = ({
   answers,
   selectedAnswer,
   handleAnswerSelection,
+  selectedQuestion,
+  totalQuestions,
 }: any) => {
   return (
     <div className="flex flex-col justify-center items-center mt-4">
@@ -50,6 +51,9 @@ const QuizAnswerOptions = ({
           {answer}
         </div>
       ))}
+      <div className="text-center mb-4">
+        Selected Question: {selectedQuestion} / {totalQuestions}
+      </div>
     </div>
   );
 };
@@ -89,6 +93,7 @@ const SingleQuizPage = () => {
 
   const handleQuestionSelection = (questionId: number) => {
     setSelectedQuestion(questionId);
+    setSelectedAnswer(null); // Reset the selected answer when a new question is clicked
   };
 
   return (
@@ -105,6 +110,8 @@ const SingleQuizPage = () => {
           answers={quiz_1.questions[selectedQuestion]?.answers || []}
           selectedAnswer={selectedAnswer}
           handleAnswerSelection={handleAnswerSelection}
+          selectedQuestion={selectedQuestion}
+          totalQuestions={quiz_1.totalQuestions}
         />
 
         <div className="w-35 mt-[50px]">
