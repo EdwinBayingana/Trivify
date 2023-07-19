@@ -12,6 +12,10 @@ const SingleQuizPage = () => {
   return (
     <Container className="text-black">
       <Navbar />
+      <Section className="flex">
+        <QuizLeftSide />
+        <QuizRightSide />
+      </Section>
     </Container>
   );
 };
