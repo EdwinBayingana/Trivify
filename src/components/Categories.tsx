@@ -28,7 +28,7 @@ const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
             key={index}
             className={`flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
               selectedCategory === index
-                ? 'text-[#000] bg-white rounded-lg'
+                ? 'text-[#222222] bg-white rounded-lg'
                 : ''
             }`}
             onClick={() => handleSelectedCategory(index)}
