@@ -1,10 +1,16 @@
-import { BiChevronDown } from 'react-icons/bi';
+'use client';
+import { useState } from 'react';
 import { CategoriesList } from '../utils/index';
 
 const Categories = () => {
-  const categoryItemWidth = 120; // Adjust this value based on your desired width per category item
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
+  const categoryItemWidth = 120;
   const parentDivWidth = CategoriesList.length * categoryItemWidth;
+
+  const handleSelectedCategory = (index: number) => {
+    setSelectedCategory(index);
+  };
 
   return (
     <div
@@ -12,10 +18,15 @@ const Categories = () => {
       style={{ width: `${parentDivWidth}px` }}
     >
       <ul className="flex flex-wrap list-none gap-[30px] pt-2">
-        {CategoriesList.map((category: string, index: number) => (
+        {CategoriesList.map((category, index) => (
           <li
             key={index}
-            className="flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black"
+            className={`flex text-[16px] mb-2 text-[white] py-1 px-2 rounded gap-[3px] cursor-pointer hover:text-black ${
+              selectedCategory === index
+                ? 'text-[black] bg-white rounded-lg'
+                : ''
+            }`}
+            onClick={() => handleSelectedCategory(index)}
           >
             {category}
           </li>

@@ -33,3 +33,12 @@ export const quiz = {
     },
   ],
 };
+
+export const QuizCardDetails = [
+  {
+    id: 1,
+    question: 'What is the capital of France?',
+    answers: ['Madrid', 'Paris', 'Rome', 'Berlin'],
+    correctAnswer: 'Paris',
+  },
+];
