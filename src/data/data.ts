@@ -37,20 +37,21 @@ export const quiz = {
 export const quizData = [
   {
     id: 1,
-    title: 'MUTD',
-    imageUrl:
-      'https://images.unsplash.com/photo-1563382563342-db6825814fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    difficulty: 'Easy',
-    category: 'Sports',
-  },
-  {
-    id: 2,
     title: 'History Trivia',
     imageUrl:
       'https://images.unsplash.com/photo-1637329097076-5d0209af3ef9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
     difficulty: 'Medium',
     category: 'History',
   },
+  {
+    id: 2,
+    title: 'MUTD',
+    imageUrl:
+      'https://images.unsplash.com/photo-1563382563342-db6825814fdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    difficulty: 'Easy',
+    category: 'Sports',
+  },
+
   {
     id: 3,
     title: 'Suits',
@@ -130,6 +131,14 @@ export const quizData = [
       'https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
     difficulty: 'Medium',
     category: 'Sports',
+  },
+  {
+    id: 13,
+    title: 'Music Theory',
+    imageUrl:
+      'https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    difficulty: 'Hard',
+    category: 'Music',
   },
 ];
 

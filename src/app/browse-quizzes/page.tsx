@@ -7,7 +7,7 @@ import { quizData } from '@/data/data';
 import { QuizCardSkeleton } from '@/components';
 
 const BrowseQuizzes = () => {
-  const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<number | null>(0);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
