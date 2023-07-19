@@ -87,17 +87,19 @@ const SingleQuizPage = () => {
   return (
     <Container className="text-black">
       <Navbar />
-      <Section className="flex">
-        <div className="w-65">
-          <QuizImage
-            imageUrl={quiz_1.questions[selectedQuestion]?.imageUrl || ''}
-          />
-          <QuizAnswerOptions
-            answers={quiz_1.questions[selectedQuestion]?.answers || []}
-            selectedAnswer={selectedAnswer}
-            handleAnswerSelection={handleAnswerSelection}
-          />
-        </div>
+      <div className="text-center">
+        <h1 className="text-[30px] font-[600]">{quiz_1.quiz_title} - QUIZ</h1>
+      </div>
+      <Section className="flex flex-row gap-[50px] border border-black justify-center">
+        <QuizImage
+          imageUrl={quiz_1.questions[selectedQuestion]?.imageUrl || ''}
+        />
+        <QuizAnswerOptions
+          answers={quiz_1.questions[selectedQuestion]?.answers || []}
+          selectedAnswer={selectedAnswer}
+          handleAnswerSelection={handleAnswerSelection}
+        />
+
         <div className="w-35">
           <QuizQuestions
             questions={quiz_1.questions}

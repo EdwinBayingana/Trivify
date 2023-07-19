@@ -36,10 +36,10 @@ const quiz_1 = {
     {
       id: 5,
       imageUrl:
-        'https://e0.pxfuel.com/wallpapers/387/569/desktop-wallpaper-honda-logo-logo-honda-emblem.jpg',
+        'https://hindi.thevocalnews.com/wp-content/uploads/2022/12/byroplhejcqo5mjisf3b.jpg',
       question: '',
-      answers: ['Jeep', 'Honda', 'Audi', 'Mercedes'],
-      correctAnswer: 'Honda',
+      answers: ['Hyundai', 'Nissan', 'Kia', 'Ford'],
+      correctAnswer: 'Hyundai',
     },
   ],
 };
