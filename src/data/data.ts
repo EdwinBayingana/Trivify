@@ -39,10 +39,13 @@ export const quizData = [
     title: 'Quiz 1',
     description: 'This is Quiz 1 description',
     difficulty: 'Easy',
+    category: 'Sports',
   },
   {
     title: 'Quiz 2',
     description: 'This is Quiz 2 description',
     difficulty: 'Medium',
+    category: 'Music',
   },
+  // Add more quiz objects with category property as needed
 ];

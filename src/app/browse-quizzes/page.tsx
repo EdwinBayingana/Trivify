@@ -1,6 +1,7 @@
 'use client';
-import { Container, Navbar, Categories, Section, QuizCard } from '@/components';
 import React, { useState } from 'react';
+import { Container, Navbar, Categories, Section, QuizCard } from '@/components';
+import { CategoriesList } from '@/utils';
 import { quizData } from '@/data/data';
 
 const BrowseQuizzes = () => {
@@ -20,11 +21,23 @@ const BrowseQuizzes = () => {
 
       {selectedCategory !== null && (
         <Section className="flex justify-center mt-5">
+          {quizData
+            .filter(
+              (quiz) => quiz.category === CategoriesList[selectedCategory],
+            )
+            .map((quiz, index) => (
+              <QuizCard key={index} quiz={quiz} />
+            ))}
+        </Section>
+      )}
+
+      {/* {selectedCategory !== null && (
+        <Section className="flex justify-center mt-5">
           {quizData.map((quiz, index) => (
             <QuizCard key={index} quiz={quiz} />
           ))}
         </Section>
-      )}
+      )} */}
     </Container>
   );
 };
