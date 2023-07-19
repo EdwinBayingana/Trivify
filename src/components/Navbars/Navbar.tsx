@@ -1,15 +1,18 @@
+import Link from 'next/link';
 import { GiBrain } from 'react-icons/gi';
 import { Text, Image } from '@/components';
 
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-between bg-brown p-4 gap-[100px] mx-[170px]">
-      <div className="flex items-center gap-2 ml-[-54px]">
-        <GiBrain className="h-11 w-11 text-black" />
-        <span className="text-black text-2xl hidden md:block lg:block xl:block">
-          Trivify
-        </span>
-      </div>
+      <Link href="/">
+        <div className="flex items-center gap-2 ml-[-54px]">
+          <GiBrain className="h-11 w-11 text-black" />
+          <span className="text-black text-2xl hidden md:block lg:block xl:block">
+            Trivify
+          </span>
+        </div>
+      </Link>
       <div className="flex items-center gap-5 text-black">
         <Text>About Us</Text>
         <Text>Leaderboard</Text>

@@ -51,7 +51,6 @@ export const quizData = [
     difficulty: 'Easy',
     category: 'Sports',
   },
-
   {
     id: 3,
     title: 'Suits',
@@ -64,8 +63,8 @@ export const quizData = [
     id: 4,
     title: 'Movie Trivia',
     imageUrl:
-      'https://s.studiobinder.com/wp-content/uploads/2019/08/Best-Movies-on-Netflix-Featured-StudioBinder.jpgChallenge yourself with movie trivia questions in this quiz!',
-    difficulty: 'Easy',
+      'https://www.whats-on-netflix.com/wp-content/uploads/2021/08/netflix-library-photo-scaled.jpg',
+    difficulty: 'Hard',
     category: 'Movies',
   },
   {
@@ -174,14 +173,63 @@ export const quizData = [
     difficulty: 'Hard',
     category: 'Music',
   },
-  // {
-  //   id: 15,
-  //   title: 'Rock',
-  //   imageUrl:
-  //     'https://c1.wallpaperflare.com/preview/204/360/969/artist-rock-n-roll-guitar-rock.jpg',
-  //   difficulty: 'Hard',
-  //   category: 'Music',
-  // },
+  // Tv Series
+  {
+    id: 18,
+    title: 'Mr Robot',
+    imageUrl:
+      'https://m.media-amazon.com/images/M/MV5BM2QyNDIzOGMtNThhNS00NmUwLWI0ZjUtZjdkN2I1OTRjZWQ3XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg',
+    difficulty: 'Medium',
+    category: 'Tv Series',
+  },
+  {
+    id: 19,
+    title: 'Mr Robot',
+    imageUrl:
+      'https://m.media-amazon.com/images/M/MV5BM2QyNDIzOGMtNThhNS00NmUwLWI0ZjUtZjdkN2I1OTRjZWQ3XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg',
+    difficulty: 'Medium',
+    category: 'Tv Series',
+  },
+  // Movies
+  {
+    id: 20,
+    title: 'The Hunger Games',
+    imageUrl:
+      'https://media.wired.com/photos/593233d05c4fbd732b5512f0/master/w_2560%2Cc_limit/Gale-and-Katniss.jpg',
+    difficulty: 'Hard',
+    category: 'Movies',
+  },
+  {
+    id: 21,
+    title: 'John Wick',
+    imageUrl:
+      'https://images03.military.com/sites/default/files/styles/full/public/2023-05/1time%20john%20wick%205%20announced%201200.jpg',
+    difficulty: 'Medium',
+    category: 'Movies',
+  },
+  {
+    id: 22,
+    title: 'Avatar',
+    imageUrl:
+      'https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_.jpg',
+    difficulty: 'Hard',
+    category: 'Movies',
+  },
+  {
+    id: 23,
+    title: 'Fast and Furious',
+    imageUrl: 'https://www.syfy.com/sites/syfy/files/2023/03/fast_x_poster.jpg',
+    difficulty: 'Easy',
+    category: 'Movies',
+  },
+  {
+    id: 24,
+    title: 'The Shack',
+    imageUrl:
+      'https://images.squarespace-cdn.com/content/v1/53a91858e4b006b9082369ca/1497953263302-54U2MO3UP9CED0ZDKTA9/image-asset.jpeg?format=1000w',
+    difficulty: 'Easy',
+    category: 'Movies',
+  },
 ];
 
 export default quizData;

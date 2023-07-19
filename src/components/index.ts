@@ -11,6 +11,7 @@ import { HomeSvg } from './Svg';
 import Categories from './Categories';
 import QuizCard from './Cards/QuizCard';
 import QuizCardSkeleton from './Skeletons/QuizCardSkeleton';
+import { QuizLeftSide, QuizRightSide } from './Sections/Quiz';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -32,4 +33,6 @@ export {
   HomeRightSection,
   HomeSvg,
   QuizCardSkeleton,
+  QuizLeftSide,
+  QuizRightSide,
 };

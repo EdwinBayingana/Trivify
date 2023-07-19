@@ -24,7 +24,7 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
       <div className="p-3">
         <h2 className="text-md font-bold mb-2">{quiz.title}</h2>
         <p className="text-black mt-2 text-[12px]">
-          Difficulty: <span className="htext-greyText">{quiz.difficulty}</span>
+          Difficulty: <span className="text-greyText">{quiz.difficulty}</span>
         </p>
       </div>
     </div>
