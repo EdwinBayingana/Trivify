@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 
 interface SectionProps {
-  children: ReactNode;
   className: string;
+  children: ReactNode;
 }
 
 const Section: React.FC<SectionProps> = ({ children, className }) => {

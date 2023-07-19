@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   Button,
   Container,
@@ -9,10 +8,6 @@ import {
 } from '@/components';
 
 export default function Home() {
-  const handleButtonClick = () => {
-    console.log('Button clicked!');
-  };
-
   return (
     <main>
       <Container className="bg-creamWhite">
