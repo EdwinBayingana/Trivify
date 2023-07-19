@@ -20,14 +20,16 @@ const BrowseQuizzes = () => {
       </Section>
 
       {selectedCategory !== null && (
-        <Section className="flex justify-center mt-5">
-          {quizData
-            .filter(
-              (quiz) => quiz.category === CategoriesList[selectedCategory],
-            )
-            .map((quiz, index) => (
-              <QuizCard key={index} quiz={quiz} />
-            ))}
+        <Section className="flex justify-center mt-5 border border-black mx-[300px]">
+          <div className="grid grid-cols-4 gap-2">
+            {quizData
+              .filter(
+                (quiz) => quiz.category === CategoriesList[selectedCategory],
+              )
+              .map((quiz, index) => (
+                <QuizCard key={index} quiz={quiz} />
+              ))}
+          </div>
         </Section>
       )}
     </Container>
