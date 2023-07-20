@@ -1,4 +1,5 @@
-import QuizLeftSide from './QuizLeftSide';
-import QuizRightSide from './QuizRightSide';
+import QuizImage from './QuizImage';
+import QuizAnswerOptions from './QuizAnswerOptions';
+import QuizQuestions from './QuizQuestions';
 
-export { QuizLeftSide, QuizRightSide };
+export { QuizImage, QuizAnswerOptions, QuizQuestions };
