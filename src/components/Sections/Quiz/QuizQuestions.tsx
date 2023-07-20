@@ -13,7 +13,7 @@ const QuizQuestions = ({
               ? 'bg-blue-500 text-white'
               : 'bg-gray-200'
           }`}
-          onClick={() => handleQuestionSelection(question.id)}
+          onClick={() => handleQuestionSelection(question.id - 1)}
         >
           {`Question ${question.id}`}
         </div>

@@ -1,3 +1,4 @@
+'use client';
 const QuizAnswerOptions = ({
   answers,
   selectedAnswer,
@@ -13,7 +14,7 @@ const QuizAnswerOptions = ({
           key={index}
           className={`flex gap-3 w-64 h-11 border border-[#CDCDCD] rounded-md py-[10px] px-1 mb-2 cursor-pointer text-[14px] ${
             selectedAnswer === index
-              ? 'bg-[#EAE8FF] text-black border-[#655DBB]'
+              ? 'bg-[#EAE8FF] text-black border-primaryPurple'
               : 'bg-white'
           }`}
           onClick={() => handleAnswerSelection(index)}
@@ -27,7 +28,7 @@ const QuizAnswerOptions = ({
         </div>
       ))}
       <div className="text-center mb-4">
-        Selected Question: {selectedQuestion} / {totalQuestions}
+        {`Question ${selectedQuestion + 1} of ${totalQuestions}`}
       </div>
     </div>
   );
