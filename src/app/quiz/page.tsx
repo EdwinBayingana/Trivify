@@ -18,8 +18,12 @@ interface Question {
   correctAnswer: string;
 }
 
+// ... other imports and components ...
+
 const SingleQuizPage = () => {
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    new Array(quiz_1.questions.length).fill(null),
+  );
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(0);
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState({
@@ -28,22 +32,25 @@ const SingleQuizPage = () => {
     wrongAnswers: 0,
   });
 
-  const handleAnswerSelection = (answerIndex: number) => {
-    setSelectedAnswer(answerIndex);
+  const handleAnswerSelection = (questionId: number, answerIndex: number) => {
+    setSelectedAnswers((prev) => {
+      const updatedAnswers = [...prev];
+      updatedAnswers[questionId] = answerIndex;
+      return updatedAnswers;
+    });
   };
 
   const handleQuestionSelection = (questionId: number) => {
     setSelectedQuestion(questionId);
-    // 👇🏽 Reset the selected answer when a new question is clicked
-    setSelectedAnswer(null);
   };
 
   const nextQuestion = () => {
+    const selectedAnswer = selectedAnswers[selectedQuestion as number];
     setResult((prev) => {
-      const { correctAnswer } = quiz_1.questions[selectedQuestion];
+      const { correctAnswer } = quiz_1.questions[selectedQuestion as number];
       const isCorrectAnswer =
         selectedAnswer !== null &&
-        quiz_1.questions[selectedQuestion].answers[selectedAnswer] ===
+        quiz_1.questions[selectedQuestion as number].answers[selectedAnswer] ===
           correctAnswer;
 
       return isCorrectAnswer
@@ -66,12 +73,11 @@ const SingleQuizPage = () => {
     } else {
       setShowResult(true);
     }
-    setSelectedAnswer(null);
   };
 
   const restartQuiz = () => {
-    setSelectedQuestion(1);
-    setSelectedAnswer(null);
+    setSelectedQuestion(0);
+    setSelectedAnswers(new Array(quiz_1.questions.length).fill(null));
     setResult({
       score: 0,
       correctAnswers: 0,
@@ -92,38 +98,42 @@ const SingleQuizPage = () => {
         />
         {!showResult ? (
           <>
-            <QuizAnswerOptions
-              answers={quiz_1.questions[selectedQuestion]?.answers || []}
-              selectedAnswer={selectedAnswer}
-              handleAnswerSelection={handleAnswerSelection}
-              selectedQuestion={selectedQuestion}
-              totalQuestions={quiz_1.totalQuestions}
-            />
+            <div className="flex flex-col mt-[70px]">
+              <QuizAnswerOptions
+                answers={quiz_1.questions[selectedQuestion]?.answers || []}
+                selectedAnswer={selectedAnswers[selectedQuestion as number]}
+                handleAnswerSelection={(answerIndex) =>
+                  handleAnswerSelection(selectedQuestion as number, answerIndex)
+                }
+                selectedQuestion={selectedQuestion}
+                totalQuestions={quiz_1.totalQuestions}
+              />
+              <div className="flex justify-center">
+                {selectedAnswers[selectedQuestion as number] !== null ? (
+                  <button
+                    onClick={nextQuestion}
+                    className="bg-gray-700 w-[100px] text-white h-[45px] rounded-md"
+                  >
+                    {selectedQuestion === quiz_1.questions.length - 1
+                      ? 'Finish 🎯'
+                      : 'Next'}
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="bg-gray-400 w-[100px] cursor-not-allowed h-[45px]"
+                  >
+                    Choose an answer
+                  </button>
+                )}
+              </div>
+            </div>
             <div className="w-35 mt-[50px]">
               <QuizQuestions
                 questions={quiz_1.questions}
                 selectedQuestion={selectedQuestion}
                 handleQuestionSelection={handleQuestionSelection}
               />
-            </div>
-            <div className="flex justify-center">
-              {selectedAnswer !== null ? (
-                <button
-                  onClick={nextQuestion}
-                  className="bg-gray-700 w-[50%] h-[45px] rounded-md"
-                >
-                  {selectedQuestion === quiz_1.questions.length - 1
-                    ? 'Finish 🎯'
-                    : 'Next'}
-                </button>
-              ) : (
-                <button
-                  disabled
-                  className="bg-gray-400 w-[100px] cursor-not-allowed h-[45px]"
-                >
-                  Choose an answer
-                </button>
-              )}
             </div>
           </>
         ) : (
@@ -153,68 +163,3 @@ const SingleQuizPage = () => {
 };
 
 export default SingleQuizPage;
-
-// 'use client';
-// import React, { useState } from 'react';
-// import {
-//   Container,
-//   Navbar,
-//   Section,
-//   QuizImage,
-//   QuizAnswerOptions,
-//   QuizQuestions,
-// } from '@/components';
-// import { quiz_1 } from '../../data/dummyQuiz';
-
-// interface Question {
-//   id: number;
-//   imageUrl: string;
-//   question: string;
-//   answers: string[];
-//   correctAnswer: string;
-// }
-
-// const SingleQuizPage = () => {
-//   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-//   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(1);
-
-//   const handleAnswerSelection = (answerIndex: number) => {
-//     setSelectedAnswer(answerIndex);
-//   };
-
-//   const handleQuestionSelection = (questionId: number) => {
-//     setSelectedQuestion(questionId);
-//     setSelectedAnswer(null); // This is to reset the selected answer when a new question is clicked
-//   };
-
-//   return (
-//     <Container className="text-black bg-creamWhite">
-//       <Navbar />
-//       <div className="text-center">
-//         <h1 className="text-[30px] font-[600]">{quiz_1.quiz_title} - QUIZ</h1>
-//       </div>
-//       <Section className="flex flex-row gap-[50px] justify-center">
-//         <QuizImage
-//           imageUrl={quiz_1.questions[selectedQuestion]?.imageUrl || ''}
-//         />
-//         <QuizAnswerOptions
-//           answers={quiz_1.questions[selectedQuestion]?.answers || []}
-//           selectedAnswer={selectedAnswer}
-//           handleAnswerSelection={handleAnswerSelection}
-//           selectedQuestion={selectedQuestion}
-//           totalQuestions={quiz_1.totalQuestions}
-//         />
-
-//         <div className="w-35 mt-[50px]">
-//           <QuizQuestions
-//             questions={quiz_1.questions}
-//             selectedQuestion={selectedQuestion}
-//             handleQuestionSelection={handleQuestionSelection}
-//           />
-//         </div>
-//       </Section>
-//     </Container>
-//   );
-// };
-
-// export default SingleQuizPage;
