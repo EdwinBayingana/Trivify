@@ -16,7 +16,8 @@ const HomeLeftSection = () => {
 
       // Redirect to the browse page
       // router.push('/');
-    }, 4000);
+    }, 10000);
+    // }, 4000);
   };
 
   return (
@@ -37,7 +38,6 @@ const HomeLeftSection = () => {
         <Link href="/browse-quizzes" onClick={handleBrowseRedirect}>
           <Button
             className="w-[160px] py-3 bg-primaryPurple text-[13px] rounded-lg justify-center flex text-center"
-            // onClick={handleBrowseRedirect}
             disabled={isLoading ? true : false}
           >
             {isLoading ? (

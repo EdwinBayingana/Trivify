@@ -36,7 +36,7 @@ const page = () => {
       selectedAnswer
         ? {
             ...prev,
-            score: prev.score + 5,
+            score: prev.score + 100,
             correctAnswers: prev.correctAnswers + 1,
           }
         : {
@@ -107,7 +107,7 @@ const page = () => {
         ) : (
           <div className="w-[300px] bg-white h-[230px] px-2 py-2 rounded-sm text-black">
             <h3>Results</h3>
-            <h3>Overall {(result.score / 25) * 100}%</h3>
+            <h3>Overall {(result.score / (questions.length * 100)) * 100}%</h3>
             <p>
               Total Questions: <span>{questions.length}</span>
             </p>

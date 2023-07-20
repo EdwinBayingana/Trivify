@@ -1,131 +1,246 @@
 'use client';
-import React, { useState } from 'react';
-import { quiz } from '../../data/data.js';
+import React, { useState, useEffect } from 'react';
+import {
+  Container,
+  Navbar,
+  Section,
+  QuizImage,
+  QuizAnswerOptions,
+  ResultCard,
+  Button,
+} from '@/components';
+import { Triangle } from 'react-loader-spinner';
+import { quiz_1 } from '../../data/dummyQuiz';
+import Link from 'next/link';
 
-const page = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [checked, setChecked] = useState(false);
-  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+interface Question {
+  id: number;
+  imageUrl: string;
+  question: string;
+  answers: string[];
+  correctAnswer: string;
+}
+
+const SingleQuizPage = () => {
+  const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
+    new Array(quiz_1.questions.length).fill(null),
+  );
+  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(0);
   const [showResult, setShowResult] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isBrowseLoading, setIsBrowseLoading] = useState(false);
+  const [isLeaderboardLoading, setIsLeaderboardLoading] = useState(false);
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
     wrongAnswers: 0,
   });
 
-  const { questions } = quiz;
-  const { question, answers, correctAnswer } = questions[activeQuestion];
+  const handleAnswerSelection = (questionId: number, answerIndex: number) => {
+    setSelectedAnswers((prev) => {
+      const updatedAnswers = [...prev];
+      updatedAnswers[questionId] = answerIndex;
+      return updatedAnswers;
+    });
+  };
 
-  const onAnswerSelected = (answer: string, index: number) => {
-    setChecked(true);
-    setSelectedAnswerIndex(index);
+  const handleBrowseRedirect = () => {
+    setIsBrowseLoading(true);
 
-    if (answer === correctAnswer) {
-      setSelectedAnswer(true);
-      console.log('true');
-    } else {
-      setSelectedAnswer(false);
-      console.log('false');
-    }
+    setTimeout(() => {
+      setIsBrowseLoading(false);
+    }, 10000);
+  };
+  const handleLeaderboardRedirect = () => {
+    setIsLeaderboardLoading(true);
+
+    setTimeout(() => {
+      setIsLeaderboardLoading(false);
+    }, 10000);
   };
 
   const nextQuestion = () => {
-    setSelectedAnswerIndex(null);
-    setResult((prev) =>
-      selectedAnswer
+    const selectedAnswer = selectedAnswers[selectedQuestion as number];
+    setResult((prev) => {
+      const { correctAnswer } = quiz_1.questions[selectedQuestion as number];
+      const isCorrectAnswer =
+        selectedAnswer !== null &&
+        quiz_1.questions[selectedQuestion as number].answers[selectedAnswer] ===
+          correctAnswer;
+
+      return isCorrectAnswer
         ? {
             ...prev,
-            score: prev.score + 5,
+            score: prev.score + 100,
             correctAnswers: prev.correctAnswers + 1,
           }
         : {
             ...prev,
             wrongAnswers: prev.wrongAnswers + 1,
-          },
-    );
-    if (activeQuestion !== questions.length - 1) {
-      setActiveQuestion((prev) => prev + 1);
+          };
+    });
+
+    if (
+      selectedQuestion !== null &&
+      selectedQuestion < quiz_1.questions.length - 1
+    ) {
+      setSelectedQuestion((prev) => prev + 1);
     } else {
-      setActiveQuestion(0);
       setShowResult(true);
     }
-    setChecked(false);
   };
 
+  const restartQuiz = () => {
+    setSelectedQuestion(0);
+    setSelectedAnswers(new Array(quiz_1.questions.length).fill(null));
+    setResult({
+      score: 0,
+      correctAnswers: 0,
+      wrongAnswers: 0,
+    });
+    setShowResult(false);
+  };
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 5000);
+  // }, []);
+
   return (
-    <div className="mx-8 text-[25px] ml-[300px] flex-col items-center justify-between p-24">
-      <h1 className="mt-[15px] text-[25px]">Quiz Page</h1>
-      <div>
-        <h3>
-          Question: {activeQuestion + 1}
-          <span>/{questions.length}</span>
-        </h3>
+    <Container className="text-black bg-creamWhite">
+      <Navbar />
+      <div className="text-center">
+        <h1 className="text-[30px] font-[600]">{quiz_1.quiz_title} - QUIZ</h1>
       </div>
-      <div>
+      <Section
+        className={`flex flex-row gap-[50px] ${
+          !showResult ? 'justify-center' : 'ml-[250px] mt-[100px]'
+        }`}
+      >
         {!showResult ? (
-          <div className="mt-[40px] w-[500px] h-full px-2 py-2 bg-[#e4e4e4] rounded-md">
-            <h3 className="font-[500] text-black text-[25px]">
-              {questions[activeQuestion].question}
-            </h3>
-            {answers.map((answer, index) => (
-              <ul className="text-black mt-3" key={index}>
-                <li
-                  key={index}
-                  onClick={() => onAnswerSelected(answer, index)}
-                  className={`border my-2 ${
-                    selectedAnswerIndex === index
-                      ? 'bg-black text-white'
-                      : 'hover:bg-gray-100'
-                  } py-2 px-2 cursor-pointer h-auto border-gray-300`}
-                >
-                  {answer}
-                </li>
-              </ul>
-            ))}
-            <div className="flex justify-center">
-              {checked ? (
-                <button
-                  onClick={nextQuestion}
-                  className="bg-gray-700 w-[50%] h-[45px] rounded-md"
-                >
-                  {activeQuestion === question.length - 1
-                    ? 'Finish 🎯'
-                    : 'Next'}
-                </button>
-              ) : (
-                <button
-                  onClick={nextQuestion}
-                  disabled
-                  className="bg-gray-400 w-[50%] cursor-not-allowed h-[45px]"
-                >
-                  Choose an answer
-                </button>
-              )}
+          <>
+            <QuizImage
+              imageUrl={quiz_1.questions[selectedQuestion]?.imageUrl || ''}
+            />
+            {/* 👇🏽 Done to hide the questions component*/}
+            {/* <div className="flex flex-col mt-[70px]">  */}{' '}
+            <div className="flex flex-row mt-[20px]">
+              <QuizAnswerOptions
+                answers={quiz_1.questions[selectedQuestion]?.answers || []}
+                selectedAnswer={selectedAnswers[selectedQuestion as number]}
+                handleAnswerSelection={(answerIndex) =>
+                  handleAnswerSelection(selectedQuestion as number, answerIndex)
+                }
+                selectedQuestion={selectedQuestion}
+                totalQuestions={quiz_1.totalQuestions}
+              />
+              {/* <div className="flex justify-center"> */}
+              <div className="flex justify-center mt-[150px] ml-[50px]">
+                {selectedAnswers[selectedQuestion as number] !== null ? (
+                  <button
+                    onClick={nextQuestion}
+                    className="bg-gray-700 w-[170px] text-white h-[45px] rounded-md"
+                  >
+                    {selectedQuestion === quiz_1.questions.length - 1
+                      ? 'Finish 🎯'
+                      : 'Next'}
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="bg-gray-400 w-[170px] rounded-lg cursor-not-allowed h-[45px]"
+                  >
+                    Choose an answer
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          </>
         ) : (
-          <div className="w-[300px] bg-white h-[230px] px-2 py-2 rounded-sm text-black">
-            <h3>Results</h3>
-            <h3>Overall {(result.score / 25) * 100}%</h3>
-            <p>
-              Total Questions: <span>{questions.length}</span>
-            </p>
-            <p>
-              Total Score: <span>{result.score}</span>
-            </p>
-            <p>
-              Correct Answers: <span>{result.correctAnswers}</span>
-            </p>
-            <p>
-              Wrong Answers: <span>{result.wrongAnswers}</span>
-            </p>
-            <button onClick={() => window.location.reload()}>Restart</button>
-          </div>
+          <Section className="flex flex-row w-[300px] h-[330px] px-4 py-4 rounded-md text-black shadow-xl">
+            <Section className="">
+              <Section>
+                <h3 className="text-2xl font-semibold mb-2">Results</h3>
+                <div className="border-b border-gray-300 pb-2 mb-4">
+                  <h3 className="text-lg font-semibold">
+                    Overall Score:{' '}
+                    {(result.score / (quiz_1.questions.length * 100)) * 100}%
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  <ResultCard
+                    label="Total Questions"
+                    value={quiz_1.questions.length}
+                  />
+                  <ResultCard label="Total Score" value={result.score} />
+                  <ResultCard
+                    label="Correct Answers"
+                    value={result.correctAnswers}
+                  />
+                  <ResultCard
+                    label="Wrong Answers"
+                    value={result.wrongAnswers}
+                  />
+                </div>
+                <button
+                  onClick={restartQuiz}
+                  className="align-center mt-4 ml-[90px] py-2 px-4 bg-primaryPurple hover:bg-[#3f3a7b] text-white rounded-md shadow-lg focus:outline-none focus:ring focus:ring-blue-300"
+                >
+                  Restart
+                </button>
+              </Section>
+              <Section className="flex flex-col gap-[10px]">
+                <Link
+                  href="/browse-quizzes"
+                  onClick={handleBrowseRedirect}
+                  className="cursor-pointer"
+                >
+                  <Button
+                    className="text-white mt-[50px] w-[200px] py-3 bg-primaryPurple text-[13px] rounded-lg justify-center flex text-center"
+                    disabled={isBrowseLoading ? true : false}
+                  >
+                    {isBrowseLoading ? (
+                      <Triangle
+                        height="20px"
+                        width="20px"
+                        color="#ffffff"
+                        ariaLabel="triangle-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                      />
+                    ) : (
+                      'Browse more Quizzes'
+                    )}
+                  </Button>
+                </Link>
+                <Link
+                  href="/leaderboard"
+                  onClick={handleLeaderboardRedirect}
+                  className="cursor-pointer"
+                >
+                  <Button className="w-[200px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg text-center">
+                    {isLeaderboardLoading ? (
+                      <Triangle
+                        height="20px"
+                        width="20px"
+                        color="#655DBB"
+                        ariaLabel="triangle-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                      />
+                    ) : (
+                      'Leaderboard'
+                    )}
+                  </Button>
+                </Link>
+              </Section>
+            </Section>
+          </Section>
         )}
-      </div>
-    </div>
+      </Section>
+    </Container>
   );
 };
 
-export default page;
+export default SingleQuizPage;

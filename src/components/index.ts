@@ -10,8 +10,9 @@ import { HomeLeftSection, HomeRightSection } from './Sections/Home';
 import { HomeSvg } from './Svg';
 import Categories from './Categories';
 import QuizCard from './Cards/QuizCard';
+import ResultCard from './Cards/ResultCard';
 import QuizCardSkeleton from './Skeletons/QuizCardSkeleton';
-import { QuizLeftSide, QuizRightSide } from './Sections/Quiz';
+import { QuizImage, QuizAnswerOptions, QuizQuestions } from './Sections/Quiz';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -28,11 +29,13 @@ export {
   SignupForm,
   Categories,
   QuizCard,
+  ResultCard,
   Navbar,
   HomeLeftSection,
   HomeRightSection,
   HomeSvg,
   QuizCardSkeleton,
-  QuizLeftSide,
-  QuizRightSide,
+  QuizImage,
+  QuizAnswerOptions,
+  QuizQuestions,
 };
