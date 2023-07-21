@@ -1,3 +1,4 @@
+'use client';
 import { FaRegEnvelope, FaKeycdn, FaGithub, FaApple } from 'react-icons/fa';
 import { CiUser } from 'react-icons/ci';
 import { RiKey2Line } from 'react-icons/ri';

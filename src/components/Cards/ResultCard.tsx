@@ -1,3 +1,4 @@
+'use client';
 const ResultCard = ({ label, value }) => {
   return (
     <div className="bg-gray-200 p-2 rounded-md text-center border border-[#cfcbff]">

@@ -1,7 +1,8 @@
+'use client';
 import React, { useState } from 'react';
 import { leaderboardData } from '@/data/leaderboardData';
 
-const ITEMS_PER_PAGE = 10; // Number of items to display per page
+const ITEMS_PER_PAGE = 10;
 
 const AllTimeLeaderboardTable = () => {
   const [currentPage, setCurrentPage] = useState(1);

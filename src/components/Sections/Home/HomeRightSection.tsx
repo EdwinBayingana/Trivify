@@ -1,3 +1,4 @@
+'use client';
 import { Section, Image, HomeSvg } from '@/components';
 
 const HomeRightSection = () => {

@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { GiBrain } from 'react-icons/gi';
 import { Text, Image } from '@/components';

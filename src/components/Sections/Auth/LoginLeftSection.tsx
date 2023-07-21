@@ -1,3 +1,4 @@
+'use client';
 import { GiBrain } from 'react-icons/gi';
 import { Text, Section, TextInput, Button, LoginForm } from '@/components';
 
