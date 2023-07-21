@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { FaRegEnvelope, FaKeycdn, FaGithub, FaApple } from 'react-icons/fa';
 import { CiUser } from 'react-icons/ci';
 import { RiKey2Line } from 'react-icons/ri';
@@ -11,6 +12,7 @@ type SignupFormSectionProps = {
 };
 
 const SignupForm: React.FC<SignupFormSectionProps> = ({ toggle }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const signupFormDisplay = () => {
     localStorage.setItem('authPageToggle', 'signup');
     toggle();
@@ -19,6 +21,10 @@ const SignupForm: React.FC<SignupFormSectionProps> = ({ toggle }) => {
   const loginFormDisplay = () => {
     localStorage.setItem('authPageToggle', 'login');
     toggle();
+  };
+
+  const handleSignupbtn = () => {
+    setIsLoading(true);
   };
 
   const inputStyles =
@@ -99,7 +105,11 @@ const SignupForm: React.FC<SignupFormSectionProps> = ({ toggle }) => {
           />
         </div>
 
-        <Button className="text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]">
+        <Button
+          disabled={isLoading ? true : false}
+          onClick={handleSignupbtn}
+          className="text-white text-[14px] rounded-[10px] h-[45px] w-[330px] bg-primaryPurple ml-[29px]"
+        >
           Continue
         </Button>
 

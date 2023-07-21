@@ -1,9 +1,7 @@
-'use client';
+// 'use client';
 import React, { InputHTMLAttributes } from 'react';
 
-interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-}
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 const TextInput: React.FC<TextInputProps> = ({ ...rest }) => {
   return <input className="border rounded-md" {...rest} />;

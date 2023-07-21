@@ -1,4 +1,12 @@
 'use client';
+interface Question {
+  id: number;
+  imageUrl: string;
+  question: string;
+  answers: string[];
+  correctAnswer: string;
+}
+
 const QuizQuestions = ({
   questions,
   selectedQuestion,

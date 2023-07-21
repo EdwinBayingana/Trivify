@@ -27,9 +27,8 @@ const SingleQuizPage = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>(
     new Array(quiz_1.questions.length).fill(null),
   );
-  const [selectedQuestion, setSelectedQuestion] = useState<number | null>(0);
+  const [selectedQuestion, setSelectedQuestion] = useState<number>(0);
   const [showResult, setShowResult] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isBrowseLoading, setIsBrowseLoading] = useState(false);
   const [isLeaderboardLoading, setIsLeaderboardLoading] = useState(false);
@@ -54,6 +53,7 @@ const SingleQuizPage = () => {
       setIsBrowseLoading(false);
     }, 10000);
   };
+
   const handleLeaderboardRedirect = () => {
     setIsLeaderboardLoading(true);
 
@@ -75,11 +75,11 @@ const SingleQuizPage = () => {
         ? {
             ...prev,
             score: prev.score + 100,
-            correctAnswers: prev.correctAnswers + 1,
+            correctAnswers: prev?.correctAnswers + 1,
           }
         : {
             ...prev,
-            wrongAnswers: prev.wrongAnswers + 1,
+            wrongAnswers: prev?.wrongAnswers + 1,
           };
     });
 
@@ -87,7 +87,7 @@ const SingleQuizPage = () => {
       selectedQuestion !== null &&
       selectedQuestion < quiz_1.questions.length - 1
     ) {
-      setSelectedQuestion((prev) => prev + 1);
+      setSelectedQuestion((prev) => (prev !== null ? prev + 1 : 0));
     } else {
       setShowResult(true);
     }
@@ -112,6 +112,8 @@ const SingleQuizPage = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleNextButtonClick = () => {};
 
   return (
     <Container className="text-black bg-creamWhite">
@@ -138,7 +140,7 @@ const SingleQuizPage = () => {
                 <QuizAnswerOptions
                   answers={quiz_1.questions[selectedQuestion]?.answers || []}
                   selectedAnswer={selectedAnswers[selectedQuestion as number]}
-                  handleAnswerSelection={(answerIndex) =>
+                  handleAnswerSelection={(answerIndex: number) =>
                     handleAnswerSelection(
                       selectedQuestion as number,
                       answerIndex,
@@ -211,6 +213,7 @@ const SingleQuizPage = () => {
                     <Button
                       className="text-white mt-[50px] w-[200px] py-3 bg-primaryPurple text-[13px] rounded-lg justify-center flex text-center"
                       disabled={isBrowseLoading ? true : false}
+                      onClick={handleNextButtonClick}
                     >
                       {isBrowseLoading ? (
                         <Triangle
@@ -231,7 +234,11 @@ const SingleQuizPage = () => {
                     onClick={handleLeaderboardRedirect}
                     className="cursor-pointer"
                   >
-                    <Button className="w-[200px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg flex text-center justify-center">
+                    <Button
+                      className="w-[200px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg flex text-center justify-center"
+                      disabled={isBrowseLoading ? true : false}
+                      onClick={handleNextButtonClick}
+                    >
                       {isLeaderboardLoading ? (
                         <Triangle
                           height="20px"

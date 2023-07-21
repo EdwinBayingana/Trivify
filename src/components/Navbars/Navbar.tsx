@@ -15,8 +15,8 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex items-center gap-5 text-black">
-        <Text>About Us</Text>
-        <Text>Leaderboard</Text>
+        <Text className="">About Us</Text>
+        <Text className="">Leaderboard</Text>
         <div className="flex">
           <Image
             src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80"

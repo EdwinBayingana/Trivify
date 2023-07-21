@@ -1,9 +1,9 @@
-const loginFormDisplay = () => {
+const loginFormDisplay = ({ toggle }: { toggle: () => void }) => {
   localStorage.setItem('authPageToggle', 'login');
   toggle();
 };
 
-const signupFormDisplay = () => {
+const signupFormDisplay = ({ toggle }: { toggle: () => void }) => {
   localStorage.setItem('authPageToggle', 'signup');
   toggle();
 };

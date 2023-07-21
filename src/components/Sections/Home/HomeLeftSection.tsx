@@ -17,8 +17,8 @@ const HomeLeftSection = () => {
       // Redirect to the browse page
       // router.push('/');
     }, 10000);
-    // }, 4000);
   };
+  const handleProfileRedirect = () => {};
 
   return (
     <Section className="flex flex-col min-h-full min-w-[50%]">
@@ -37,6 +37,7 @@ const HomeLeftSection = () => {
       <Section className="flex ml-[135px] gap-[10px] mt-[30px]">
         <Link href="/browse-quizzes" onClick={handleBrowseRedirect}>
           <Button
+            onClick={handleBrowseRedirect}
             className="w-[160px] py-3 bg-primaryPurple text-[13px] rounded-lg justify-center flex text-center"
             disabled={isLoading ? true : false}
           >
@@ -54,7 +55,11 @@ const HomeLeftSection = () => {
             )}
           </Button>
         </Link>
-        <Button className="w-[160px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg">
+        <Button
+          onClick={handleProfileRedirect}
+          disabled={isLoading ? true : false}
+          className="w-[160px] py-3 bg-white text-primaryPurple border border-primaryPurple text-[13px] rounded-lg"
+        >
           View Profile
         </Button>
       </Section>
