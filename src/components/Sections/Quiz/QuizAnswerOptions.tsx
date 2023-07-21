@@ -8,7 +8,6 @@ const QuizAnswerOptions = ({
 }: any) => {
   return (
     <div className="flex flex-col justify-center items-center mt-4">
-      {/* Answer Options */}
       {answers.map((answer: string, index: number) => (
         <div
           key={index}

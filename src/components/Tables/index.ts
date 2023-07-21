@@ -1,3 +1,3 @@
-import Leaderboard from './Leaderboard';
+import AllTimeLeaderboardTable from './AllTimeLeaderboardTable';
 
-export { Leaderboard };
+export { AllTimeLeaderboardTable };

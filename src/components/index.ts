@@ -13,7 +13,7 @@ import QuizCard from './Cards/QuizCard';
 import ResultCard from './Cards/ResultCard';
 import { QuizCardSkeleton, SingleQuizPageSkeleton } from './Skeletons';
 import { QuizImage, QuizAnswerOptions, QuizQuestions } from './Sections/Quiz';
-import { Leaderboard } from './Tables';
+import { AllTimeLeaderboardTable } from './Tables';
 
 import { LoginForm, SignupForm } from './Forms';
 
@@ -41,5 +41,5 @@ export {
   QuizAnswerOptions,
   QuizQuestions,
   FinishQuizPageSvg,
-  Leaderboard,
+  AllTimeLeaderboardTable,
 };
