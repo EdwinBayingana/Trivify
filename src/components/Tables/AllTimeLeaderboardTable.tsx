@@ -1,23 +1,22 @@
 'use client';
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { leaderboardData } from '@/data/leaderboardData';
 
 const ITEMS_PER_PAGE = 10;
 
 const AllTimeLeaderboardTable = () => {
-  // const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Function to get the data for the current page
+  const getCurrentPageData = () => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return leaderboardData.slice(startIndex, endIndex);
+  };
 
-  // const getCurrentPageData = () => {
-  //   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  //   const endIndex = startIndex + ITEMS_PER_PAGE;
-  //   return leaderboardData.slice(startIndex, endIndex);
-  // };
-
-  // const handlePageChange = (pageNumber: number) => {
-  //   setCurrentPage(pageNumber);
-  // };
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   const totalPageCount = Math.ceil(leaderboardData.length / ITEMS_PER_PAGE);
 
@@ -98,7 +97,7 @@ const AllTimeLeaderboardTable = () => {
           ))}
         </tbody>
       </table>
-      {/* <div className="mt-4">
+      <div className="mt-4">
         {Array.from({ length: totalPageCount }, (_, index) => index + 1).map(
           (pageNumber) => (
             <button
@@ -114,7 +113,7 @@ const AllTimeLeaderboardTable = () => {
             </button>
           ),
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
