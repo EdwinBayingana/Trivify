@@ -1,5 +1,4 @@
 'use client';
-
 interface Question {
   id: number;
   imageUrl: string;
@@ -15,7 +14,6 @@ const QuizRightSide = () => {
   }: any) => {
     return (
       <div className="flex flex-col items-center mt-4">
-        {/* Question Containers */}
         {questions.map((question: Question) => (
           <div
             key={question.id}

@@ -69,11 +69,11 @@ export const quizData = [
   },
   {
     id: 5,
-    title: 'OpenAI',
+    title: 'Car Brands',
     imageUrl:
-      'https://images.lifestyleasia.com/wp-content/uploads/sites/6/2023/01/30023721/openai-chatgpt-elon-musk-artificial-intelligence.png?tr=w-1200,h-900',
+      'https://lh6.googleusercontent.com/C9K7lgRbaUIaxWKiVCCS9rA2PPODhRoMaUp7D9qyC6UwN02x4vC2AZjT7Y7ji88yYwTeqWhHejcRyZdJaoI4uAduEWjAIBZegM0oEFDEigkb8v9BhU_Ko6rjMGeGrA8A7rkhxYjZ',
     difficulty: 'Medium',
-    category: 'AI',
+    category: 'Cars',
   },
   {
     id: 6,
@@ -184,9 +184,9 @@ export const quizData = [
   },
   {
     id: 19,
-    title: 'Mr Robot',
+    title: 'The 100',
     imageUrl:
-      'https://m.media-amazon.com/images/M/MV5BM2QyNDIzOGMtNThhNS00NmUwLWI0ZjUtZjdkN2I1OTRjZWQ3XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg',
+      'https://ntvb.tmsimg.com/assets/p18078200_b_h8_ae.jpg?w=1280&h=720',
     difficulty: 'Medium',
     category: 'Tv Series',
   },

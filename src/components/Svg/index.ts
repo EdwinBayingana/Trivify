@@ -1,3 +1,4 @@
 import HomeSvg from './HomeSvg';
+import FinishQuizPageSvg from './FinishQuizPageSvg';
 
-export { HomeSvg };
+export { HomeSvg, FinishQuizPageSvg };

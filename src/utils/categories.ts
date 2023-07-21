@@ -4,7 +4,7 @@ const CategoriesList = [
   'Music',
   'Tv Series',
   'Movies',
-  'AI',
+  'Cars',
   'Software Development',
 ];
 
