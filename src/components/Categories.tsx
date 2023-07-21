@@ -9,7 +9,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ onCategorySelect }) => {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(0); // This 0 is the index of the first category
 
-  const categoryItemWidth = 110;
+  const categoryItemWidth = 115;
   const parentDivWidth = CategoriesList.length * categoryItemWidth;
 
   const handleSelectedCategory = (index: number) => {

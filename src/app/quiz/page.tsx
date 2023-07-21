@@ -8,6 +8,7 @@ import {
   QuizAnswerOptions,
   ResultCard,
   Button,
+  FinishQuizPageSvg,
 } from '@/components';
 import { Triangle } from 'react-loader-spinner';
 import { quiz_1 } from '../../data/dummyQuiz';
@@ -160,7 +161,7 @@ const SingleQuizPage = () => {
         ) : (
           <Section className="flex flex-row w-[300px] h-[330px] px-4 py-4 rounded-md text-black shadow-xl">
             <Section className="">
-              <Section>
+              <Section className="w-[265px]">
                 <h3 className="text-2xl font-semibold mb-2">Results</h3>
                 <div className="border-b border-gray-300 pb-2 mb-4">
                   <h3 className="text-lg font-semibold">
@@ -235,6 +236,9 @@ const SingleQuizPage = () => {
                   </Button>
                 </Link>
               </Section>
+            </Section>
+            <Section className="right-0">
+              <FinishQuizPageSvg />
             </Section>
           </Section>
         )}

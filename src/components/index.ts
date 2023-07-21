@@ -7,7 +7,7 @@ import Section from './Section';
 import Text from './Text';
 import { Navbar } from './Navbars';
 import { HomeLeftSection, HomeRightSection } from './Sections/Home';
-import { HomeSvg } from './Svg';
+import { HomeSvg, FinishQuizPageSvg } from './Svg';
 import Categories from './Categories';
 import QuizCard from './Cards/QuizCard';
 import ResultCard from './Cards/ResultCard';
@@ -38,4 +38,5 @@ export {
   QuizImage,
   QuizAnswerOptions,
   QuizQuestions,
+  FinishQuizPageSvg,
 };

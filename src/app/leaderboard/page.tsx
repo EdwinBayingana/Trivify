@@ -14,7 +14,7 @@ const page = () => {
   return (
     <Container>
       <Navbar />
-      <Section>
+      <Section className="">
         {/* <div className="flex flex-row justify-center items-center border gap-[2px] bg-[#E6E6E6] rounded-[10px] w-[330px] h-[50px] mx-[29px]">
           <div className="w-[50%] border rounded-[10px] text-center">
             <Text className="cursor-pointer text-black px-[10px] h-[46px] py-[12px] bg-[#fff] rounded-[10px] text-[14px]">
